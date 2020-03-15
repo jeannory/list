@@ -396,4 +396,17 @@ public class ListServiceImplTest {
         Assert.assertNull("return null", results);
     }
 
+    @Test
+    public void testPartitionShouldReturnExample1WhenSizeIsGreaterThanIntegersSize() {
+        //given
+        final List<Integer> integers = Arrays.asList(1,2,3,4,5);
+
+        //when
+        final List<List<Integer>> results = listService.partition(integers, 6);
+
+        //then
+        final List<Integer> l1 = Arrays.asList(1,2,3,4,5);
+        Assert.assertEquals(Collections.singletonList(l1), results);
+    }
+
 }
