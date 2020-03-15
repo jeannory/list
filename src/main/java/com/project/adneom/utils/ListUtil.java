@@ -19,17 +19,18 @@ public class ListUtil {
             int fillingNumber = getFillingNumber(amount, size);
             int indice = 0;
             for(int k = 0; k < fillingNumber; k++){
-
                 final List<Integer> newItems = new ArrayList<>();
+
                 for (int j = 0; j < size; j++) {
-                    try {
-                        newItems.add(this.items.get(indice));
-                    }catch (IndexOutOfBoundsException ex){
-                        ex.printStackTrace();
+                    //end of list filling
+                    if(indice == (amount)){
                         break;
+                    }else{
+                        newItems.add(this.items.get(indice));
+                        indice += 1;
                     }
-                    indice += 1;
                 }
+
                 if(!newItems.isEmpty()){
                     itemsList.add(newItems);
                 }
